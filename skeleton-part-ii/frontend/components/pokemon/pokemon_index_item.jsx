@@ -1,22 +1,22 @@
 import React from "react";
 import {Link} from 'react-router-dom';
 
-const PokemonIndexItems = ({}) => {
-  return (
-    <li>
+class PokemonIndexItem extends React.Component{
+  constructor(props){
+    super(props);
+  }
 
-    </li>
-  )
+  render(){
+    return(
+      <li className="pokemon-index-item">
+        <Link to={`/pokemon/${this.props.pokemon.id}`}>
+          <span>{this.props.pokemon.id}</span>
+          <img src={this.props.pokemon.imageUrl}/>
+          <span>{this.props.pokemon.name}</span>
+        </Link>
+      </li>
+    )
+  }
 }
 
-// const PostIndexItem = ({ post, deletePost }) => { 
-//   return (
-//   <li> 
-//     <Link to={`/posts/${post.id}`}>{post.title}</Link> 
-//     <Link to={`/posts/${post.id}/edit`}>Edit</Link> 
-//     <button onClick={() => deletePost(post.id)}></button> 
-//   </li>) 
-//   } 
-  
-  
-//   export default PostIndexItem;
+export default PokemonIndexItem;
